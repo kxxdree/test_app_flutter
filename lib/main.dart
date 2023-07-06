@@ -27,6 +27,7 @@ class LoadingPage extends StatelessWidget {
         child: GestureDetector(
           child: const Image(
             image: AssetImage('assets/images/LoadingPage.png'),
+            fit: BoxFit.cover,
           ),
           onTap: () {
             Navigator.push(
