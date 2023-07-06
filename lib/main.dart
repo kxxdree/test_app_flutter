@@ -88,7 +88,17 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Image.network('${snapshot.data?.cities[index].image}'),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const StreetsScreen(),
+                              ),
+                            );
+                          },
+                          child: Image.network('${snapshot.data?.cities[index].image}'),
+                        ),
                         const SizedBox(height: 16),
                         Text(
                           '${snapshot.data?.cities[index].name}',
@@ -104,20 +114,6 @@ class _HomePageState extends State<HomePage> {
                         const SizedBox(height: 8),
                         Text('Фото сделано ${snapshot.data?.cities[index].dateTimeImage}'),
                         const SizedBox(height: 16),
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const StreetsScreen(),
-                              ),
-                            );
-                          },
-                          style: const ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(Colors.black),
-                          ),
-                          child: const Text('К улицам'),
-                        ),
                       ],
                     ),
                   ),
